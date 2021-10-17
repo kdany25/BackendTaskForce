@@ -7,7 +7,7 @@
   "scripts": {
     "dev": " cross-env NODE_ENV=development nodemon --exec babel-node index.js",
     "start": " babel-node index.js",
-    "test": "mocha --require @babel/polyfill --require @babel/register Test/*.js"
+    "test": " nyc mocha --require @babel/polyfill --require @babel/register Test/*.js"
   },
   "keywords": [],
   "author": "",
@@ -41,8 +41,10 @@
     "mongoose": "^6.0.11",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
+    "nyc": "^15.1.0",
     "passport": "^0.5.0",
     "passport-google-oauth20": "^2.0.0",
+    "swagger-jsdoc": "^6.1.0",
     "swagger-ui-express": "^4.1.6",
     "unique-random": "^3.0.0",
     "winston": "^3.3.3",

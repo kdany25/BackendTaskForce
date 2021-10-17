@@ -2,7 +2,7 @@ import chai from 'chai'
 import chaiHttp from 'chai-http'
 import router from '../index.js';
 
-import { new_User } from './Dumy.Data.js';
+import { new_User, update_user , updateUserStatus, logiin } from './Dumy.Data.js';
 
 chai.should();
 chai.use(chaiHttp)
@@ -111,3 +111,101 @@ describe ('negative test', ()=>{
       })
     })
   })
+
+  //update user
+describe ('update  employee', ()=>{
+  it(" update a employee",(done)=>{
+    const id = "616b1da4f24d2fa94c95a925 ";
+    
+    chai.request(router).patch('/employee/'+ id).send(update_user).end((err,res)=>{
+      res.body.should.be.a('object')
+      
+      // res.body.data.should.have.property("message") 
+      
+      done(); 
+    })
+  })
+})
+
+//negative test
+
+//cnat not create user
+describe ('negative test', ()=>{
+  it(" can not update ",(done)=>{
+    
+    chai.request(router).patch('/employy').send(new_User).end((err,res)=>{
+      res.body.should.be.a('object')
+      res.should.have.status(404)
+      
+      
+      done(); 
+    })
+  })
+})
+
+
+
+describe ('update  status', ()=>{
+  it(" update a status",(done)=>{
+    const id = "616b1da4f24d2fa94c95a925 ";
+    
+    chai.request(router).patch('/employee/status'+id).send(updateUserStatus).end((err,res)=>{
+      res.body.should.be.a('object')
+      
+      // res.body.data.should.have.property("message") 
+      
+      done(); 
+    })
+  })
+})
+
+//negative test
+
+//cnat not create user
+describe ('negative test', ()=>{
+  it(" can not update status ",(done)=>{
+    
+    chai.request(router).patch('/employy').send(updateUserStatus).end((err,res)=>{
+      res.body.should.be.a('object')
+      res.should.have.status(404)
+      
+      
+      done(); 
+    })
+  })
+})
+
+
+//login
+describe ('login ', ()=>{
+  it(" login",(done)=>{
+    
+    chai.request(router).post('/login').send(logiin).end((err,res)=>{
+      res.body.should.be.a('object')
+      res.should.have.status(200)
+    
+      
+      done(); 
+    })
+  })
+})
+
+//negative test
+
+//cnat not ogin user
+describe ('negative test', ()=>{
+  it(" can login",(done)=>{
+    
+    chai.request(router).post('/rlog').send(logiin).end((err,res)=>{
+      res.body.should.be.a('object')
+      res.should.have.status(404)
+      
+      
+      done(); 
+    })
+  })
+})
+
+
+
+

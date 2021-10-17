@@ -1,5 +1,6 @@
 import express from "express";
 
+
 import {
     createEmployee ,
     getAllEmployee ,
@@ -18,6 +19,10 @@ import { addEmployeeValidation , updateEmployeeValidation } from "../../Validati
 import {authenticatetoken} from "../../helper/verifyToken.js"
 
 const router = express.Router();
+
+
+
+
 
 router.post("/registration", authenticatetoken, addEmployeeValidation, createEmployee);
 router.get('/AllEmployees' ,getAllEmployee);

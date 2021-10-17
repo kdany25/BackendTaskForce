@@ -23,4 +23,20 @@ const updateUserStatus = {
     status : "DESACTIVE"
 }
 
-export {new_User , update_user , updateUserStatus}
+const resetPassWord = {
+	email : "kabadany25@gmail.com"
+}
+
+const logiin = {
+	
+		email : "kabadany25@gmail.com" ,
+		password : "kiki"
+	
+}
+
+const setnewPass = {
+	"newPassword" : "kikii" ,
+	"retypePassword" : "kikii"
+}
+
+export {new_User , update_user , updateUserStatus , resetPassWord ,logiin , setnewPass}
