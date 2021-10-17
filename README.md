@@ -52,19 +52,21 @@ npm run test
 # API Reference
 You need need [postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop//%40) to test APIs.
 
-` GET /AllEmployees ` Fetch all employees.
+` GET /AllEmployees ` Fetch all employees. 
 
-` GET /registration ` create a employee.
+` POST /registration ` create a employee.  protected (requires token )
 
-` PATCH /employee/:id` update a employee.
+` PATCH /employee/:id` update a employee.   protected (requires token )
 
-` PATCH /employee/status/:id ` updating status.
+` PATCH /employee/status/:id ` updating status.  
 
-` DELETE /employee/:id ` delete employee.
+` DELETE /employee/:id ` delete employee.  protected (requires token ) protected (requires token )
 
 ` GET /employee/search ` search by name or email , phone , or code ,or position .
 
 ` POST /login ` LOgin Employee.
+
+` GET /reset-password `  request to change password .
 
 ` PATCH /set-password `  change password or set new password.
 
